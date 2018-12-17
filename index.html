@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <!-- Mirrored from coderthemes.com/abstack/default/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 10:33:02 GMT -->
+    <head>
+        <meta charset="utf-8" />
+        <title>Dil Without Bill</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="../images/index.jpg">
+
+        <!-- App css -->
+        <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="./css/icons.css" rel="stylesheet" type="text/css" />
+        <link href="./css/metismenu.min.css" rel="stylesheet" type="text/css" />
+        <link href="./css/style.css" rel="stylesheet" type="text/css" />
+
+        <script src="./js/modernizr.min.js"></script>
+
+    </head>
+
+
+    <body class="bg-accpunt-pages">
+
+        <!-- HOME -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="wrapper-page">
+
+                            <div class="account-pages">
+                                <div class="account-box">
+                                    <div class="account-logo-box">
+                                        <h2 class="text-uppercase text-center">
+                                            <a href="index.html" class="text-success">
+                                                
+                                            </a>
+                                        </h2>
+                                        <h6 class="text-uppercase text-center font-bold mt-4"></h6>
+                                    </div>
+                                    <div class="account-content">
+                                       
+                                       <span id="image"></span> 
+                                       <br>
+                                       <h6 id="welcomeNote">
+                                        
+                                       </h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card-box-->
+
+
+                        </div>
+                        <!-- end wrapper -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END HOME -->
+
+
+        <!-- jQuery  -->
+        <script src="./js/jquery.min.js"></script>
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
+        <script src="./js/metisMenu.min.js"></script>
+        <script src="./js/waves.js"></script>
+        <script src="./js/jquery.slimscroll.js"></script>
+
+        <!-- App js -->
+        <script src="./js/jquery.core.js"></script>
+        <script src="./js/jquery.app.js"></script>
+
+    </body>
+
+<!-- Mirrored from coderthemes.com/abstack/default/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 10:33:02 GMT -->
+</html>
+
+<script>
+    
+    $(document).ready(function(){
+        $.ajax({    //create an ajax request to display.php
+            type: "POST",
+            url: "https://anantkart.com/dillwithoutbill/services/homePage.php",
+            success: function(response){
+                var obj = JSON.stringify(response.server_response[0]['message']);
+                var data = JSON.parse(obj);
+                //alert(obj);
+                $('#image').append('<img style="width:50%; display:block; margin:0 auto;" src="./images/' + data.imagePath + '"" />');
+                $('#welcomeNote').text(data.slogan);
+                
+            }
+
+        });
+
+        // window.setTimeout(function() {
+        //     window.location = '../auth/loginUser.html';
+        // }, 5000);
+     });
+</script>
